@@ -1,9 +1,11 @@
 class Solution:
     
-    def add_char(self, stack: list, c:str) -> None:
+    @staticmethod
+    def add_char(stack: list, c:str) -> None:
         stack.insert(0,c)
     
-    def remove_char(self, stack: list, c:str) -> bool:
+    @staticmethod
+    def remove_char(stack: list, c:str) -> bool:
         if(len(stack) == 0):       #make sure stack isn't empty
             return False
         
@@ -31,10 +33,12 @@ class Solution:
         
         for c in s:
             if(c == "(" or c == "[" or c == "{"):
-                self.add_char(stack,c)
+                Solution.add_char(stack,c)
             elif(c == ")" or c == "]" or c == "}"):
-                if(not self.remove_char(stack,c)):
+                if(not Solution.remove_char(stack,c)):
                     return False
         
         return len(stack) == 0
+        
+        
         
